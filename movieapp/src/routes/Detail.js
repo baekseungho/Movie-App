@@ -26,6 +26,7 @@ function Detail() {
     setLoading(false);
 
     const movies = json.data.movies;
+
     movies.map((movie) => {
       if (id.id == movie.id) {
         setTitle(movie.title);
@@ -50,15 +51,20 @@ function Detail() {
     <div className="wrapper">
       <div className="infobox">
         <div>
-          <img src={largeCoverImage} alt="이승호ㅗ" />
+          <img src={largeCoverImage} alt={title} />
         </div>
         <div className="text">
           <div className="title">{title}</div>
           <p>러닝타임 : {runtime}분</p>
           <p>평점 : {rating}점</p>
           <p>개봉일 : {date_uploaded.slice(0, 11)}</p>
-          <p>언어 : {language}</p>
-          <p>장르 : {genres}</p>
+          <p>언어 : {language.toUpperCase()}</p>
+          <p>
+            장르 :
+            {genres.map((g) => {
+              return <span key={g}> {g} /</span>;
+            })}
+          </p>
           <p className="explane">{descriptionFull}</p>
         </div>
 

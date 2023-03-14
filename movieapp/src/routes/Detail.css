@@ -31,7 +31,7 @@ div {
 .text {
   display: flex;
   flex-direction: column;
-  margin-left: 20px;
+  margin-left: 40px;
 }
 .title {
   font-size: 48px;
