@@ -23,7 +23,7 @@ function Home() {
   return (
     <div className="App">
       {loading ? (
-        <h1>loading...</h1>
+        <h1 className="load"> loading...</h1>
       ) : (
         <div className="wrapper">
           {movies.map((movie) => (

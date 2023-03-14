@@ -1,3 +1,61 @@
-h1 {
+div {
   color: #fff;
+}
+
+.wrapper {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  color: grey;
+  opacity: 0.7;
+}
+
+.infobox {
+  position: absolute;
+  display: flex;
+  top: 50%;
+  left: 50%;
+  padding: 20px;
+  width: 80%;
+  height: 77%;
+  transform: translate(-50%, -50%);
+  border: 2px solid #777;
+  background-color: #202020;
+  border-radius: 10px;
+}
+
+.infobox img {
+  height: 100%;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+.title {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+.text p {
+  margin-bottom: 15px;
+  font-size: 18px;
+  height: 18px;
+  font-weight: 600;
+}
+
+.explane {
+  margin-top: 50px;
+}
+
+.back {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: 1px solid #777;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 50px;
 }

@@ -1,14 +1,20 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import "./Detail.css";
 
 function Detail() {
   const id = useParams();
-  const [title, setTitle] = useState("");
-  const [large_cover_image, setLarge_cover_image] = useState();
-  const [runtime, setRuntime] = useState("");
-  const [rating, setRating] = useState(0.0);
-  const [date_uploaded, setDate_uploaded] = useState("");
+  let [title, setTitle] = useState("");
+  let [largeCoverImage, setlargeCoverImage] = useState();
+  let [runtime, setRuntime] = useState("");
+  let [rating, setRating] = useState(0.0);
+  let [date_uploaded, setDate_uploaded] = useState("");
+  let [genres, setGenres] = useState("");
+  let [descriptionFull, setDescriptionFull] = useState("");
+  let [language, setLanguage] = useState("");
 
   const [loading, setLoading] = useState(true);
   const getMovie = async () => {
@@ -18,14 +24,18 @@ function Detail() {
       )
     ).json();
     setLoading(false);
-    console.log(id);
+
     const movies = json.data.movies;
     movies.map((movie) => {
       if (id.id == movie.id) {
         setTitle(movie.title);
-        setLarge_cover_image(movie.large_cover_image);
+        setlargeCoverImage(movie.large_cover_image);
         setRuntime(movie.runtime);
         setRating(movie.rating);
+        setDate_uploaded(movie.date_uploaded);
+        setGenres(movie.genres);
+        setDescriptionFull(movie.description_full);
+        setLanguage(movie.language);
       }
     });
   };
@@ -35,16 +45,29 @@ function Detail() {
   }, []);
 
   return loading ? (
-    <h1>loading...</h1>
+    <h1 className="load">loading...</h1>
   ) : (
-    <div className="infobox">
-      <h1>{title}</h1>
-      <div>
-        <img src={large_cover_image} alt="" />
+    <div className="wrapper">
+      <div className="infobox">
+        <div>
+          <img src={largeCoverImage} alt="이승호ㅗ" />
+        </div>
+        <div className="text">
+          <div className="title">{title}</div>
+          <p>러닝타임 : {runtime}분</p>
+          <p>평점 : {rating}점</p>
+          <p>개봉일 : {date_uploaded.slice(0, 11)}</p>
+          <p>언어 : {language}</p>
+          <p>장르 : {genres}</p>
+          <p className="explane">{descriptionFull}</p>
+        </div>
+
+        <Link to="/Movie/">
+          <div className="back">
+            {/* <FontAwesomeIcon icon="fa-solid fa-house" /> */}X
+          </div>
+        </Link>
       </div>
-      <h1>
-        {runtime}시간,{rating}점
-      </h1>
     </div>
   );
 }
