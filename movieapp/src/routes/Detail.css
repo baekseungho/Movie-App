@@ -49,6 +49,10 @@ div {
   margin-top: 50px;
 }
 
+#space {
+  height: 50px;
+}
+
 .back {
   position: absolute;
   top: 20px;
@@ -58,4 +62,5 @@ div {
   width: 50px;
   text-align: center;
   line-height: 50px;
+  border-radius: 5px;
 }

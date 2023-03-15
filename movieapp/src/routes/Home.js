@@ -12,7 +12,7 @@ function Home() {
         `https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=rating`
       )
     ).json();
-    console.log(json);
+
     setMovies(json.data.movies);
     setLoading(false);
   };
@@ -23,19 +23,27 @@ function Home() {
   return (
     <div className="App">
       {loading ? (
-        <h1 className="load"> loading...</h1>
+        <div>
+          <div className="loder"></div>
+          <h1 className="load">loading...</h1>
+        </div>
       ) : (
         <div className="wrapper">
-          {movies.map((movie) => (
-            <Movie
-              key={movie.id}
-              id={movie.id}
-              coverimage={movie.medium_cover_image}
-              title={movie.title}
-              summary={movie.summary}
-              genres={movie.genres}
-            />
-          ))}
+          <nav>
+            <h1 className="logo">SH Movie SAP</h1>
+          </nav>
+          <div className="bodyWrapper">
+            {movies.map((movie) => (
+              <Movie
+                key={movie.id}
+                id={movie.id}
+                coverimage={movie.medium_cover_image}
+                title={movie.title}
+                summary={movie.summary}
+                genres={movie.genres}
+              />
+            ))}
+          </div>
         </div>
       )}
     </div>

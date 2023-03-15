@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Textarea from "../component/Textarea";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./Detail.css";
 
@@ -13,7 +14,7 @@ function Detail() {
   let [rating, setRating] = useState(0.0);
   let [date_uploaded, setDate_uploaded] = useState("");
   let [genres, setGenres] = useState("");
-  let [descriptionFull, setDescriptionFull] = useState("");
+  let [summary, setSummary] = useState("");
   let [language, setLanguage] = useState("");
 
   const [loading, setLoading] = useState(true);
@@ -35,7 +36,7 @@ function Detail() {
         setRating(movie.rating);
         setDate_uploaded(movie.date_uploaded);
         setGenres(movie.genres);
-        setDescriptionFull(movie.description_full);
+        setSummary(movie.summary);
         setLanguage(movie.language);
       }
     });
@@ -46,7 +47,10 @@ function Detail() {
   }, []);
 
   return loading ? (
-    <h1 className="load">loading...</h1>
+    <div>
+      <div className="loder"></div>
+      <h1 className="load">loading...</h1>
+    </div>
   ) : (
     <div className="wrapper">
       <div className="infobox">
@@ -59,18 +63,21 @@ function Detail() {
           <p>평점 : {rating}점</p>
           <p>개봉일 : {date_uploaded.slice(0, 11)}</p>
           <p>언어 : {language.toUpperCase()}</p>
-          <p>
+          <p className="genres">
             장르 :
             {genres.map((g) => {
               return <span key={g}> {g} /</span>;
             })}
           </p>
-          <p className="explane">{descriptionFull}</p>
+          <div id="space"></div>
+          {/* <p className="explane">{summary}</p> */}
+
+          <Textarea summary={summary} />
         </div>
 
         <Link to="/Movie/">
           <div className="back">
-            {/* <FontAwesomeIcon icon="fa-solid fa-house" /> */}X
+            <i className="fa-solid fa-house"></i>
           </div>
         </Link>
       </div>
