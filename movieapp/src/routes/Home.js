@@ -39,6 +39,8 @@ function Home() {
                 id={movie.id}
                 coverimage={movie.medium_cover_image}
                 title={movie.title}
+                rating={movie.rating}
+                date={movie.date_uploaded}
                 summary={movie.summary}
                 genres={movie.genres}
               />

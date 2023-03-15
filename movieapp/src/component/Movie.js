@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "./Movie.css";
 
-function Movie({ id, coverimage, title, summary, genres }) {
+function Movie({ id, coverimage, title, rating, date, genres }) {
   return (
     <div className="box">
       <div className="op">
@@ -12,7 +12,11 @@ function Movie({ id, coverimage, title, summary, genres }) {
             {title}
           </Link>
         </h2>
-        <textarea className="summary" value={summary} disabled></textarea>
+        {/* <textarea className="summary" value={summary} disabled></textarea> */}
+        <div className="DnR">
+          {date.slice(0, 11)} / {rating}
+          <i className="fa-solid fa-star"></i>
+        </div>
         <ul>
           {genres.map((g) => (
             <li key={g}>{g}</li>
