@@ -6,7 +6,9 @@ function Movie({ id, coverimage, title, rating, date, genres }) {
   return (
     <div className="box">
       <div className="op">
-        <img src={coverimage} alt={title} />
+        <Link className="noto-sans _900" to={`/movie/${id}`}>
+          <img src={coverimage} alt={title} />
+        </Link>
         <h2>
           <Link className="noto-sans _900" to={`/movie/${id}`}>
             {title}

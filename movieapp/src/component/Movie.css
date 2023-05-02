@@ -76,10 +76,13 @@ ul {
 }
 li {
   border: 2px solid #777;
-  padding: 4px 10px;
+  padding: 0 10px;
   border-radius: 5px;
   user-select: none;
   transition: all 150ms ease-in-out;
+  font-size: 16px;
+  height: 34px;
+  line-height: 30px;
 }
 
 li:hover {
