@@ -21,7 +21,7 @@ function Detail() {
   const getMovie = async () => {
     const json = await (
       await fetch(
-        `https://yts.mx/api/v2/list_movies.json?minimum_rating=7&sort_by=rating&limit=50&movie_id=${id}`
+        `https://yts.mx/api/v2/list_movies.json?minimum_rating=7&limit=40&movie_id=${id}`
       )
     ).json();
     setLoading(false);
