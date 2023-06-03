@@ -22,3 +22,7 @@ body {
 .swiper-scrollbar-drag {
   background-color: #fff;
 }
+
+.summary {
+  font-size: 16px;
+}
