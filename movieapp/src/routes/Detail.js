@@ -61,7 +61,8 @@ function Detail() {
           <div className="title">{title}</div>
           <p>러닝타임 : {runtime}분</p>
           <p>평점 : {rating}점</p>
-          <p>개봉일 : {date_uploaded.slice(0, 11)}</p>
+          <p>개봉일 : {date_uploaded}</p>
+          {/* <p>개봉일 : {date_uploaded.slice(0, 11)}</p> */}
           <p>언어 : {language.toUpperCase()}</p>
           <p className="genres">
             장르 :

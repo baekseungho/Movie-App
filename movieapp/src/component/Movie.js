@@ -16,7 +16,8 @@ function Movie({ id, coverimage, title, rating, date, genres }) {
         </h2>
         {/* <textarea className="summary" value={summary} disabled></textarea> */}
         <div className="DnR">
-          {date.slice(0, 11)} / {rating}
+          {/* {date.slice(0, 11)} / {rating} */}
+          {date} / {rating}
           <span> </span>
           <i className="fa-solid fa-star"></i>
         </div>
